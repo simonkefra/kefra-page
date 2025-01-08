@@ -304,6 +304,28 @@
             color: #ddd;
             font-size: 1rem;
         }
+
+        /* Show More Button */
+        .toggle-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border: none;
+            color: #000;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-button:hover {
+            background-color: #ff5c8d;
+        }
+
+        .more-images {
+            display: none;
+        }
     </style>
 
 </head>
@@ -341,27 +363,31 @@
             <img src="IMG_4539.JPG" alt="Gallery Image 1">
             <img src="IMG_4540.JPG" alt="Gallery Image 2">
             <img src="leads mission.jpg" alt="Gallery Image 3">
-            <img src="guitar.JPG" alt="Gallery Image 1">
-            <img src="bobo.JPG" alt="Gallery Image 1">
-            <img src="squad.JPG" alt="Gallery Image 1">
-            <img src="animal.JPG" alt="Gallery Image 3">
-            <img src="maze.JPG" alt="Gallery Image 1">
-            <img src="zion avenue logo0001.png" alt="Gallery Image 1">
-            <img src="bird2.JPG" alt="Gallery Image 2">
-            <img src="fire.JPG" alt="Gallery Image 1">
-            <img src="lights.JPG" alt="Gallery Image 1">
-            <img src="pick.JPG" alt="Gallery Image 1">
-            <img src="squad2.JPG" alt="Gallery Image 1">
-            <img src="candles.PNG" alt="Gallery Image 1">
-            <img src="bitcoin.JPG" alt="Gallery Image 1">
-            <!-- More images... -->
+            <img src="guitar.JPG" alt="Gallery Image 4">
         </div>
+        <div class="more-images">
+            <div class="gallery-images">
+                <img src="bobo.JPG" alt="Gallery Image 5">
+                <img src="squad.JPG" alt="Gallery Image 6">
+                <img src="animal.JPG" alt="Gallery Image 7">
+                <img src="maze.JPG" alt="Gallery Image 8">
+                <img src="zion avenue logo0001.png" alt="Gallery Image 9">
+                <img src="bird2.JPG" alt="Gallery Image 10">
+                <img src="fire.JPG" alt="Gallery Image 11">
+                <img src="lights.JPG" alt="Gallery Image 12">
+                <img src="pick.JPG" alt="Gallery Image 13">
+                <img src="squad2.JPG" alt="Gallery Image 14">
+                <img src="candles.PNG" alt="Gallery Image 15">
+                <img src="bitcoin.JPG" alt="Gallery Image 16">
+            </div>
+        </div>
+        <button class="toggle-button" id="toggle-button">Show More</button>
     </section>
 
     <!-- Music Library Section -->
     <section id="music-library" class="music-library">
         <h2>Music Library</h2>
-        <p style="text-align: center; color: #75be62; margin-bottom: 20px;">All songs are priced at UGX 1500</p>
+        <p style="text-align: center; color: #ffcc00; margin-bottom: 20px;">All songs are priced at UGX 1500</p>
         <div class="tracks">
             <!-- Track 1 -->
             <div class="track">
@@ -458,6 +484,18 @@
     </footer>
 
     <script>
+        // Toggle Show More / Show Less Functionality
+        document.getElementById('toggle-button').addEventListener('click', function () {
+            const moreImages = document.querySelector('.more-images');
+            if (moreImages.style.display === 'block') {
+                moreImages.style.display = 'none';
+                this.textContent = 'Show More';
+            } else {
+                moreImages.style.display = 'block';
+                this.textContent = 'Show Less';
+            }
+        });
+
         async function processPayment(trackName, amount) {
             const email = "simonkefra@gmail.com"; // Hardcoded email for now, consider user input for production
             const phoneNumber = prompt("Please enter your phone number:"); // Capture mobile number
