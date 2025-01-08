@@ -8,7 +8,7 @@
     <title>Kefra Music</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
@@ -43,7 +43,8 @@
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem; /* Increased font size */
+            font-weight: bold; /* Made the font bolder */
             font-family: 'Poppins', sans-serif;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -140,7 +141,7 @@
         /* Music Library Section */
         .music-library {
             padding: 60px 0;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(168, 155, 155, 0.1);
             border-radius: 15px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             margin-bottom: 40px;
@@ -213,58 +214,34 @@
             box-shadow: 0 8px 15px rgba(255, 92, 141, 0.4);
         }
 
-        /* Payment Popup */
-        .payment-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+        /* Gallery Section */
+        #gallery {
+            padding: 60px 0;
         }
 
-        .payment-popup .popup-content {
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
+        #gallery h2 {
             text-align: center;
-            color: #fff;
-            width: 300px;
+            color: #ffcc00;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
         }
 
-        .payment-popup .popup-content h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+        .gallery-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .payment-popup .popup-content input,
-        .payment-popup .popup-content select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: none;
-            font-size: 1rem;
+        .gallery-images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
         }
 
-        .payment-popup .popup-content button {
-            padding: 10px 20px;
-            background-color: #ffcc00;
-            color: #000;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .payment-popup .popup-content button:hover {
-            background-color: #ff5c8d;
-            color: #fff;
+        .gallery-images img:hover {
+            transform: scale(1.1); /* Zoom in effect */
         }
 
         /* Contact Form Section */
@@ -319,20 +296,6 @@
             color: #fff;
         }
 
-        /* Gallery Section */
-        .gallery-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .gallery-images img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
         /* Footer */
         footer {
             background-color: #111;
@@ -342,6 +305,7 @@
             font-size: 1rem;
         }
     </style>
+
 </head>
 
 <body>
@@ -353,7 +317,6 @@
                 <li><a href="#music-library">Music</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#payment" onclick="openPaymentPopup()">Payments</a></li>
             </ul>
         </nav>
     </header>
@@ -364,14 +327,15 @@
         <h2>Kefra</h2>
         <p>Multi-genre music artist creating unique soundscapes. Passionate about storytelling through music.</p>
         <div class="social-icons">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-youtube"></a>
+            <a href="https://www.facebook.com/kefra" target="_blank" class="fab fa-facebook-f" aria-label="Facebook"></a>
+            <a href="https://www.twitter.com/kefra" target="_blank" class="fab fa-twitter" aria-label="Twitter"></a>
+            <a href="https://www.instagram.com/simon_kefra?igsh=MWk2eGs3aTF5cms0MQ%3D%3D&utm_source=qr" target="_blank" class="fab fa-instagram" aria-label="Instagram"></a>
+            <a href="https://www.youtube.com/channel/UCTZUjLAcr-VsBulu_raVYsw" target="_blank" class="fab fa-youtube" aria-label="YouTube"></a>
         </div>
     </section>
+
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
+    <section id="gallery">
         <h2>Gallery</h2>
         <div class="gallery-images">
             <img src="IMG_4539.JPG" alt="Gallery Image 1">
@@ -390,122 +354,102 @@
             <img src="squad2.JPG" alt="Gallery Image 1">
             <img src="candles.PNG" alt="Gallery Image 1">
             <img src="bitcoin.JPG" alt="Gallery Image 1">
-
             <!-- More images... -->
         </div>
     </section>
 
-
-        <!-- Music Library Section -->
-        <section id="music-library" class="music-library">
-            <h2>Music Library</h2>
-            <div class="tracks">
-                <!-- Track 1 -->
-                <div class="track">
-                    <h3>Majesty</h3>
-                    <audio controls>
-                        <source src="C:\\Users\\leads\\Desktop\\PRIME\\kefra - Majesty.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button class="payment-button" onclick="openPaymentPopup()">
-                        <i class="fas fa-shopping-cart"></i> Buy Now
-                    </button>
-                </div>
-    
-                <!-- Track 2 -->
-                <div class="track">
-                    <h3>Sembera</h3>
-                    <audio controls>
-                        <source src="Kefra - Sembera.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button class="payment-button" onclick="openPaymentPopup()">
-                        <i class="fas fa-shopping-cart"></i> Buy Now
-                    </button>
-                </div>
-    
-                <!-- Track 3 -->
-                <div class="track">
-                    <h3>Twaala</h3>
-                    <audio controls>
-                        <source src="Kefra - Twaala.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button class="payment-button" onclick="openPaymentPopup()">
-                        <i class="fas fa-shopping-cart"></i> Buy Now
-                    </button>
-                </div>
-    
-                <!-- Track 4 -->
-                <div class="track">
-                    <h3>Nkomawo</h3>
-                    <audio controls>
-                        <source src="Kefra - Nkomawo.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button class="payment-button" onclick="openPaymentPopup()">
-                        <i class="fas fa-shopping-cart"></i> Buy Now
-                    </button>
-                </div>
-    
-                <!-- Track 5 -->
-                <div class="track">
-                    <h3>OBUDDE</h3>
-                    <audio controls>
-                        <source src="OBUDDE - Kefra.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button class="payment-button" onclick="openPaymentPopup()">
-                        <i class="fas fa-shopping-cart"></i> Buy Now
-                    </button>
-                </div>
-    
-                <!-- Track 6 -->
-                <div class="track">
-                    <h3>Wanjagalako ki?</h3>
-                    <audio controls>
-                        <source src="Kefra - Wanjagalako Ki.mp3" type="audio/mp3">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button class="payment-button" onclick="openPaymentPopup()">
-                        <i class="fas fa-shopping-cart"></i> Buy Now
-                    </button>
-                </div>
+    <!-- Music Library Section -->
+    <section id="music-library" class="music-library">
+        <h2>Music Library</h2>
+        <p style="text-align: center; color: #75be62; margin-bottom: 20px;">All songs are priced at UGX 1500</p>
+        <div class="tracks">
+            <!-- Track 1 -->
+            <div class="track">
+                <h3>Majesty</h3>
+                <audio controls>
+                    <source src="C:\\Users\\leads\\Desktop\\PRIME\\kefra - Majesty.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="payment-button" onclick="processPayment('Majesty', 1500)">
+                    <i class="fas fa-shopping-cart"></i> Buy Now
+                </button>
             </div>
-        </section>
-    
 
-    <!-- Payment Popup -->
-    <div class="payment-popup" id="paymentPopup">
-        <div class="popup-content">
-            <h3>Payment Details</h3>
-            <input type="text" placeholder="Name on Card" required>
-            <input type="text" placeholder="Card Number" required>
-            <input type="text" placeholder="MM/YY" required>
-            <input type="text" placeholder="CVV" required>
-            <select>
-                <option value="usd">USD</option>
-                <option value="eur">EUR</option>
-                <option value="mtn">MTN Mobile Money</option>
-                <option value="airtel">Airtel Mobile Money</option>
-                <option value="airtelmoney">Airtel Money</option>
-            </select>
-            <button onclick="processPayment()">Pay Now</button>
-            <button onclick="closePaymentPopup()">Close</button>
+            <!-- Track 2 -->
+            <div class="track">
+                <h3>Sembera</h3>
+                <audio controls>
+                    <source src="Kefra - Sembera.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="payment-button" onclick="processPayment('Sembera', 1500)">
+                    <i class="fas fa-shopping-cart"></i> Buy Now
+                </button>
+            </div>
+
+            <!-- Track 3 -->
+            <div class="track">
+                <h3>Twaala</h3>
+                <audio controls>
+                    <source src="Kefra - Twaala.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="payment-button" onclick="processPayment('Twaala', 1500)">
+                    <i class="fas fa-shopping-cart"></i> Buy Now
+                </button>
+            </div>
+
+            <!-- Track 4 -->
+            <div class="track">
+                <h3>Nkomawo</h3>
+                <audio controls>
+                    <source src="Kefra - Nkomawo.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="payment-button" onclick="processPayment('Nkomawo', 1500)">
+                    <i class="fas fa-shopping-cart"></i> Buy Now
+                </button>
+            </div>
+
+            <!-- Track 5 -->
+            <div class="track">
+                <h3>OBUDDE</h3>
+                <audio controls>
+                    <source src="OBUDDE - Kefra.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="payment-button" onclick="processPayment('OBUDDE', 1500)">
+                    <i class="fas fa-shopping-cart"></i> Buy Now
+                </button>
+            </div>
+
+            <!-- Track 6 -->
+            <div class="track">
+                <h3>Wanjagalako ki?</h3>
+                <audio controls>
+                    <source src="Kefra - Wanjagalako Ki.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="payment-button" onclick="processPayment('Wanjagalako ki?', 1500)">
+                    <i class="fas fa-shopping-cart"></i> Buy Now
+                </button>
+            </div>
         </div>
-    </div>
+    </section>
 
-    
-    <!-- Contact Section -->
+    <!-- Contact Form Section -->
     <section id="contact">
-        <h2>Contact Kefra</h2>
+        <h2>Contact</h2>
         <div class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+            <form id="my-form" action="https://formspree.io/f/xovvpzby" method="POST">
+                <label>Email:</label>
+                <input type="email" name="email" required />
+                <label>Message:</label>
+                <input type="text" name="message" required />
+                <button id="my-form-button" type="submit">Submit</button>
+                <p id="my-form-status"></p>
+            </form>
         </div>
-        
     </section>
 
     <!-- Footer -->
@@ -514,19 +458,90 @@
     </footer>
 
     <script>
-        function openPaymentPopup() {
-            document.getElementById('paymentPopup').style.display = 'flex';
+        async function processPayment(trackName, amount) {
+            const email = "simonkefra@gmail.com"; // Hardcoded email for now, consider user input for production
+            const phoneNumber = prompt("Please enter your phone number:"); // Capture mobile number
+            if (!phoneNumber) {
+                alert("Payment cancelled.");
+                return;
+            }
+
+            const payload = {
+                amount: amount,
+                currency: "UGX",
+                email: email,
+                tx_ref: `MC-${Math.random().toString(36).substring(2, 15)}`, // Generate random transaction reference
+                order_id: `USS_${Math.random().toString(36).substring(2, 15)}`,
+                fullname: "ssengendo simon", // Hardcoded name, consider user input for production
+                phone_number: phoneNumber,
+                client_ip: "192.168.1.1", // Placeholder IP for local testing
+                device_fingerprint: "62wd23423rq324323qew1", // Sample value, consider generating dynamically
+                meta: {
+                    flightID: "123949494DC",
+                    sideNote: "Payment for " + trackName
+                },
+                redirect_url: "https://your_redirect_url_here" // Set a proper redirect URL
+            };
+
+            try {
+                const response = await fetch("https://api.flutterwave.com/v3/charges?type=mobile_money_uganda", {
+                    method: "POST",
+                    headers: {
+                        "accept": "application/json",
+                        "Authorization": "Bearer FLWSECK_TEST-SANDBOXDEMOKEY-X",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert("Payment initiated successfully! Please follow the instructions to complete your payment.");
+                    console.log(data); // Log full data for debugging
+                } else {
+                    console.error("Error processing payment:", data);
+                    alert("Payment failed: " + (data.message || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Payment error. Please try again.");
+            }
         }
 
-        function closePaymentPopup() {
-            document.getElementById('paymentPopup').style.display = 'none';
-        }
+        // Form submission handling
+        var form = document.getElementById("my-form");
 
-        function processPayment() {
-            alert('Payment Processed!');
-            closePaymentPopup();
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "Thanks for your submission!";
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oops! There was a problem submitting your form";
+                        }
+                    });
+                }
+            }).catch(error => {
+                status.innerHTML = "Oops! There was a problem submitting your form";
+            });
         }
+        
+        form.addEventListener("submit", handleSubmit);
     </script>
 
 </body>
+
 </html>
